@@ -1,16 +1,33 @@
-function add(a, b){
-    return a + b;
+function add(num1, num2){
+    return num1 + num2;
 }
 
-function subtract(a, b){
-    return a - b;
+function subtract(num1, num2){
+    return num1 - num2;
 }
 
-function multiply(a, b){
-    return a * b;
+function multiply(num1, num2){
+    return num1 * num2;
 }
 
-function divide(a, b){
-    return a / b;
+function divide(num1, num2){
+    return num1 / num2;
+    
+}
+
+function operate(operator, num1, num2){
+    
+    if(operator == '+'){
+        add(num1, num2);
+    }
+    if(operator == '-'){
+        subtract(num1, num2);
+    }
+    if(operator == '*'){
+        multiply(num1, num2);
+    }
+    if(operator == '/'){
+        add(num1, num2);
+    }
     
 }
