@@ -4,28 +4,51 @@
         <meta charset="UTF-8">
         <title>Calculator</title>
         <script src="js/script.js" defer></script>
+        <link rel = "stylesheet" href="css/style.css">
     </head>
     <body>
+        <div id = "container">
         <div id="display">
 
         </div>
         <div id="buttons">
-            <button class="digits">0</button>
-            <button class="digits">1</button>
-            <button class="digits">2</button>
-            <button class="digits">3</button>
+            <div class = "row1">
+                <button id = "clear">CLEAR</button>
+            </div>
+            <div class = "row2">
+                <button class="digits">7</button>
+                <button class="digits">8</button>
+                <button class="digits">9</button>
+                <button id="divide" class="functions" >DIVIDE</button>
+            </div>
+        <div class = "row3">
             <button class="digits">4</button>
             <button class="digits">5</button>
             <button class="digits">6</button>
-            <button class="digits">7</button>
-            <button class="digits">8</button>
-            <button class="digits">9</button>
-            <button id="add"        class="functions" >ADD</button>
-            <button id="subtract"  class="functions" >SUBSTRACT</button>
-            <button id="multiply"   class="functions" >MULTIPLY</button>
-            <button id="divide"     class="functions" >DIVIDE</button>
-            <button id = "equal">EQUALS</button>
-            <button id = "clear">CLEAR</button>
+            <button id="multiply" class="functions" >MULTIPLY</button>
+         </div>
+         <div class = "row4">
+            <button class="digits">1</button>
+            <button class="digits">2</button>
+            <button class="digits">3</button>
+            <button id="subtract" class="functions" >SUBSTRACT</button>
+         </div>
+         <div class = "row5"> 
+             <button>.</button>
+             <button class="digits">0</button>
+             <button id = "equal">EQUALS</button>
+             <button id="add" class="functions" >ADD</button>
+            </div>
+            
+           
+        </div>     
+           
+            
+            
+            
+            
+            
+            
         </div>
     </body>
 </html>
