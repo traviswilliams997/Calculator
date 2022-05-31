@@ -8,7 +8,11 @@ function multiply(num1, num2){
     return num1 * num2;
 }
 function divide(num1, num2){
+    if(num2 !== 0 ){
     return num1 / num2;
+    }else{
+        return 0;
+    }
 }
 
 function operate(operator, num1, num2){
@@ -146,9 +150,15 @@ const divbtn = document.querySelector('#divide');
 divbtn.addEventListener('click', () => {
     displayValue = "";
     if(divPush == 'yes' ){
+        if(lastValue !== 0){
         output =  operate('/', firstNum, lastValue);
         calcDisplay(output, displayContent, display);
-        firstNum = output;   
+        firstNum = output;
+        }else{
+            calcDisplay('ERROR',displayContent, display );
+            lastValue = 0;
+            firstNum =0;
+        }   
     }else{
         if(addPush == 'no' && subPush == 'no' && mulPush == 'no' && equalPush == 'no'){
         firstNum = lastValue;
@@ -202,9 +212,15 @@ function whichPushed(addP, subP, mulP, divP){
         mulPush ='no';
     }
     if(divP == 'yes'){
-        output =  operate('/', firstNum, lastValue);
-        calcDisplay(output, displayContent, display);
-        firstNum = output;
+        if(lastValue !== 0){
+            output =  operate('/', firstNum, lastValue);
+            calcDisplay(output, displayContent, display);
+            firstNum = output;
+            }else{
+                calcDisplay('ERROR',displayContent, display );
+                lastValue = 0;
+                firstNum =0;
+            }
         divPush ='no';
        
     }
