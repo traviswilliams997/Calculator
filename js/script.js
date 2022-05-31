@@ -37,4 +37,28 @@ function operate(operator, num1, num2){
     
 }
 
+//display
+const display = document.querySelector('#display');
+const displayContent = document.createElement('div');
+displayContent.classList.add('displayContent');
+
+
+function calcDisplay(value, displayContent, display){
+    let displayValue = value;
+    displayContent.textContent = displayValue;
+    display.appendChild(displayContent);
+
+}
+
+//button to display
+const digits = document.querySelectorAll('#digits');
+
+for (let i = 0; i < digits.length; i++) {
+    digits[i].addEventListener('click', () => {
+        calcDisplay(`${i}`, displayContent, display);
+      });
+    }
+
+
+
 
