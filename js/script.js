@@ -41,7 +41,37 @@ function calcDisplay(value, displayContent, display){
 
 //To display multiple digit numbers
 function play(i){
-    displayValue += i;
+    if(i === 0){
+        displayValue += 7;
+    }
+    if(i === 1){
+        displayValue += 8;
+    }
+    if(i === 2){
+        displayValue += 9;
+    }
+    if(i === 3){
+        displayValue += 4;
+    }
+    if(i === 4){
+        displayValue += 5;
+    }
+    if(i === 5){
+        displayValue += 6;
+    }
+    if(i === 6){
+        displayValue += 1;
+    }
+    if(i === 7){
+        displayValue += 2;
+    }
+    if(i === 8){
+        displayValue += 3;
+    }
+    if(i === 9){
+        displayValue += 0;
+    }
+    //displayValue += i;
     calcDisplay(displayValue, displayContent, display);
     lastValue = parseInt(displayValue);
 }
@@ -167,14 +197,12 @@ function whichPushed(addP, subP, mulP, divP){
     }
     if(mulP == 'yes'){
         output =  operate('*', firstNum, lastValue);
-        console.log('mul  push at which' + output);
         calcDisplay(output, displayContent, display);
         firstNum = output;
         mulPush ='no';
     }
     if(divP == 'yes'){
         output =  operate('/', firstNum, lastValue);
-        console.log('div  push at which' + output);
         calcDisplay(output, displayContent, display);
         firstNum = output;
         divPush ='no';
