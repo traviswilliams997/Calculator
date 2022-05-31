@@ -79,7 +79,7 @@ let equalPush = 'no';
 
 
 
-
+//Addition button
 
 const addbtn = document.querySelector('#add');
     addbtn.addEventListener('click', () => {
@@ -107,6 +107,7 @@ const addbtn = document.querySelector('#add');
         console.log('at add button: push equal ' + addPush);
       });
 
+//Subtraction button
 const subbtn = document.querySelector('#subtract');
 subbtn.addEventListener('click', () => {
     displayValue = "";
@@ -129,7 +130,7 @@ subbtn.addEventListener('click', () => {
         console.log('at sub button: push equal ' + subPush);
       });
     
-
+//Multiply button
 const mulbtn = document.querySelector('#multiply');
 mulbtn.addEventListener('click', () => {
     displayValue = "";
@@ -151,6 +152,7 @@ mulbtn.addEventListener('click', () => {
         console.log('at mul button: push equal ' + mulPush);
       });
 
+//Division button
 const divbtn = document.querySelector('#divide');
 divbtn.addEventListener('click', () => {
     displayValue = "";
@@ -173,6 +175,7 @@ divbtn.addEventListener('click', () => {
         console.log('at div button: push equal ' + divPush);
       });
 
+//Equals button
 const equalbtn = document.querySelector('#equal');
 equalbtn.addEventListener('click', () => {
     displayValue = "";
@@ -184,7 +187,26 @@ equalbtn.addEventListener('click', () => {
         console.log('at add button: push equal ' + equalPush);
       });
 
+const clearbtn = document.querySelector('#clear');
+clearbtn.addEventListener('click', () => {
+    displayValue = "";
+    lastValue = 0;
+    firstNum = 0;
+    output = 0;
+    addPush = 'no';
+    subPush = 'no';
+    mulPush = 'no';
+    divPush = 'no';
+    equalPush =  'no';
+    calcDisplay(displayValue, displayContent, display);
+              
+             
+            });
+      
 
+
+
+//Repeated calculations
 function whichPushed(addP, subP, mulP, divP){
     
     if(addP == 'yes'){
