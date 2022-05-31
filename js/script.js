@@ -44,7 +44,8 @@ function calcDisplay(value, displayContent, display){
 }
 
 //To display multiple digit numbers
-function play(i){
+function pushDisplay(i){
+    //fix bugs where wrong number was being displayed after rearanging buttons for css
     if(i === 0){
         displayValue += 7;
     }
@@ -75,16 +76,15 @@ function play(i){
     if(i === 9){
         displayValue += 0;
     }
-    //displayValue += i;
     calcDisplay(displayValue, displayContent, display);
     lastValue = parseInt(displayValue);
 }
-
+//logic to display on screen when digit is pressed
 const digits = document.querySelectorAll('.digits');
 for (let i = 0; i < digits.length; i++) {
-    digits[i].addEventListener('click', function(){play(i)});
+    digits[i].addEventListener('click', function(){pushDisplay(i)});
     }
-
+//variables needed to translate button press to calculation  and display 
 let lastValue = 0;
 let firstNum = 0;
 let output = 0 ;
@@ -103,12 +103,13 @@ addbtn.addEventListener('click', () => {
         calcDisplay(output, displayContent, display);     
         firstNum = output;
     }else{
+        //if another button was pressed we want the otherPushed function to calculate the firstNum
         if(subPush == 'no' && mulPush == 'no' && divPush == 'no' && equalPush == 'no'){
             firstNum = lastValue;
         }
         addPush = 'yes';
     }   
-        whichPushed(0, subPush, mulPush, divPush);        
+        otherPushed(0, subPush, mulPush, divPush);        
       });
 
 //Subtraction button
@@ -125,7 +126,7 @@ subbtn.addEventListener('click', () => {
         }
         subPush = 'yes';
     }
-    whichPushed(addPush, 0, mulPush, divPush);       
+    otherPushed(addPush, 0, mulPush, divPush);       
       });
     
 //Multiply button
@@ -142,7 +143,7 @@ mulbtn.addEventListener('click', () => {
             }
         mulPush = 'yes';
     }
-    whichPushed(addPush, subPush, 0, divPush);       
+    otherPushed(addPush, subPush, 0, divPush);       
       });
 
 //Division button
@@ -150,6 +151,7 @@ const divbtn = document.querySelector('#divide');
 divbtn.addEventListener('click', () => {
     displayValue = "";
     if(divPush == 'yes' ){
+        //displays error if denomitor is equal to zero
         if(lastValue !== 0){
         output =  operate('/', firstNum, lastValue);
         calcDisplay(output, displayContent, display);
@@ -165,18 +167,18 @@ divbtn.addEventListener('click', () => {
         }
         divPush = 'yes';
      }
-    whichPushed(addPush, subPush, mulPush, 0);       
+    otherPushed(addPush, subPush, mulPush, 0);       
       });
 
 //Equals button
 const equalbtn = document.querySelector('#equal');
 equalbtn.addEventListener('click', () => {
     displayValue = "";
-    whichPushed(addPush, subPush, mulPush, divPush);
+    otherPushed(addPush, subPush, mulPush, divPush);
     equalPush = 'yes';
         
       });
-
+//Clear button
 const clearbtn = document.querySelector('#clear');
 clearbtn.addEventListener('click', () => {
     displayValue = "";
@@ -191,8 +193,9 @@ clearbtn.addEventListener('click', () => {
     calcDisplay(displayValue, displayContent, display);
             });
       
-//Repeated calculations
-function whichPushed(addP, subP, mulP, divP){
+//Finishes calculation of last pressed operator when other operator is pressed
+//In a seperate function because logic is reused several times
+function otherPushed(addP, subP, mulP, divP){
     if(addP == 'yes'){    
      output =  operate('+', firstNum, lastValue);
      calcDisplay(output, displayContent, display);
