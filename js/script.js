@@ -53,12 +53,15 @@ function calcDisplay(value, displayContent, display){
 //button to display add"
 const digits = document.querySelectorAll('.digits');
 let lastValue = 0;
+let firstNum = 0;
+let output = 0;
+let operateStore = "";
 let addPush = 'no';
 let subPush = 'no';
 let mulPush ='no';
 let divPush = 'no';
-let firstNum = 0;
-let output = 0;
+let equalPush = 'no';
+
 
 
 for (let i = 0; i < digits.length; i++) {
@@ -84,7 +87,7 @@ addbtn.addEventListener('click', () => {
         
         }else{
           
-            if(subPush == 'no' && mulPush == 'no' && divPush){
+            if(subPush == 'no' && mulPush == 'no' && divPush == 'no' && equalPush == 'no'){
                 firstNum = lastValue;
                }
                 addPush = 'yes';
@@ -131,7 +134,7 @@ subbtn.addEventListener('click', () => {
             firstNum = output;
            
            }else{
-               if(addPush == 'no' && mulPush == 'no' && divPush == 'no'){
+               if(addPush == 'no' && mulPush == 'no' && divPush == 'no' && equalPush == 'no'){
              firstNum = lastValue;
             }
              subPush = 'yes';
@@ -181,7 +184,7 @@ mulbtn.addEventListener('click', () => {
             firstNum = output;
            
            }else{
-               if(addPush == 'no' && subPush == 'no' && divPush == 'no'){
+               if(addPush == 'no' && subPush == 'no' && divPush == 'no' && equalPush == 'no'){
              firstNum = lastValue;
             }
              mulPush = 'yes';
@@ -230,7 +233,7 @@ divbtn.addEventListener('click', () => {
             firstNum = output;
            
            }else{
-               if(addPush == 'no' && subPush == 'no' && mulPush == 'no'){
+               if(addPush == 'no' && subPush == 'no' && mulPush == 'no' && equalPush == 'no'){
              firstNum = lastValue;
             }
              divPush = 'yes';
@@ -265,8 +268,53 @@ divbtn.addEventListener('click', () => {
             mulPush ='no';
            
            }
+         
        
         console.log('at div button: push equal ' + divPush);
+      });
+
+const equalbtn = document.querySelector('#equal');
+equalbtn.addEventListener('click', () => {
+        if(addPush == 'yes'){
+            output =  operate('+', firstNum, lastValue);
+            console.log('add push at equal ' + output);
+            calcDisplay(output, displayContent, display);     
+            firstNum = output;
+            addPush = 'no';
+        
+        }
+        if(subPush == 'yes'){
+            output =  operate('-', firstNum, lastValue);
+            console.log('sub push at equal ' + output);
+            calcDisplay(output, displayContent, display);
+           
+            firstNum = output;
+            subPush = 'no';
+           }
+           if(mulPush == 'yes'){
+           
+            output =  operate('*', firstNum, lastValue);
+            console.log('mul push at equal' + output);
+            calcDisplay(output, displayContent, display);
+           
+            firstNum = output;
+            mulPush ='no';
+           
+           }
+           if(divPush == 'yes'){
+           
+            output =  operate('/', firstNum, lastValue);
+            console.log('div  push at equal' + output);
+            calcDisplay(output, displayContent, display);
+           
+            firstNum = output;
+            divPush ='no';
+           
+           }
+
+           equalPush =  'yes';
+        
+        console.log('at add button: push equal ' + equalPush);
       });
 
 
