@@ -12,10 +12,12 @@ body{
     
     display: flex;
     flex-direction: column;
-    height: 600px;
+    height: 580px;
     width: 400px;
-    border: red 5px solid;
-    background-color: lightgrey;
+     border: black 2px solid; 
+    background-color: rgb(80, 79, 79);
+    border-radius: 20px;
+    
 }
 #buttons > * {
     /* flex-grow: 1;
@@ -24,19 +26,41 @@ body{
 }
 #display{
     height:   100px;
+    margin: 12px;
     background: rgb(200, 247, 200);
     font-size: 48;
+    border-radius: 8px;
+    border: 1px solid black;
+    /* display: flex;
+    align-content: flex-end; */
 
+}
+.row1 #solar{
+    height: 80px;
+    width: 190px;
+    margin: 5px;
+    border-radius: 8px;
+
+    background-color: rgb(8, 8, 105);
+
+}
+.row1 button{
+    width: 170px;
 }
 button{
     margin: 5px;
-    height: 60px;
-    width: 60px;
-    background-color: white;
+    height: 80px;
+    width: 80px;
+    background-color: lightgrey;
+    border-radius: 8px;
 }
 .rows{
     /* align-items: stretch; */
     display: flex;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     justify-content: space-evenly;
+}
+.row1{
+    justify-content: right;
+    padding-right: 10px;
 }
