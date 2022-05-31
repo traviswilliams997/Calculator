@@ -54,6 +54,8 @@ function calcDisplay(value, displayContent, display){
 const digits = document.querySelectorAll('.digits');
 let lastValue = 0;
 let addPush = 'no';
+let subPush = 'no';
+
 
 
 for (let i = 0; i < digits.length; i++) {
@@ -77,18 +79,75 @@ let output = 0;
     addbtn.addEventListener('click', () => {
         if(addPush == 'yes'){
          output =  operate('+', firstNum, lastValue);
+         console.log('add push at add ' + output);
          calcDisplay(output, displayContent, display);
         
          firstNum = output;
         
         }else{
           
-          firstNum = lastValue;
-          addPush = 'yes';
-        
+            if(subPush == 'no'){
           
+                firstNum = lastValue;
+                
+               }
+               
+               
+                addPush = 'yes';
+              
+        
         }
-        console.log('at button: push equal ' + addPush);
+
+
+        if(subPush == 'yes'){
+            output =  operate('-', firstNum, lastValue);
+            console.log('sub push at add ' + output);
+            calcDisplay(output, displayContent, display);
+           
+            firstNum = output;
+            subPush = 'no';
+           }
+        
+        console.log('at add button: push equal ' + addPush);
+      });
+
+      const subbtn = document.querySelector('#subtract');
+
+
+
+
+    subbtn.addEventListener('click', () => {
+        if(subPush == 'yes' ){
+            output =  operate('-', firstNum, lastValue);
+            console.log('sub push at sub' + output);
+            calcDisplay(output, displayContent, display);
+           
+            firstNum = output;
+           
+           }else{
+               if(addPush == 'no'){
+          
+             firstNum = lastValue;
+             
+            }
+            
+            
+             subPush = 'yes';
+           
+             
+           }
+        if(addPush == 'yes'){
+           
+         output =  operate('+', firstNum, lastValue);
+         console.log('add push at sub' + output);
+         calcDisplay(output, displayContent, display);
+        
+         firstNum = output;
+         addPush ='no';
+        
+        }
+       
+        console.log('at sub button: push equal ' + subPush);
       });
     
 
