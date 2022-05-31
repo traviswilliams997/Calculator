@@ -3,32 +3,25 @@ body{
     /* flex-direction: column; */
     justify-content: center;
     align-items: center;
-    border: 10px solid black;
+    /* //border: 10px solid black; */
     min-height: 100vh;
     
 }
-#container{
-    
-    
+#container{ 
     display: flex;
     flex-direction: column;
     height: 580px;
     width: 400px;
      border: black 2px solid; 
-    background-color: rgb(80, 79, 79);
+    background-color: rgb(99, 96, 96);
     border-radius: 20px;
     
 }
-#buttons > * {
-    /* flex-grow: 1;
-    display: flex; */
 
-}
 #display{
     height:   100px;
     margin: 12px;
     background: rgb(200, 247, 200);
-    font-size: 48;
     border-radius: 8px;
     border: 1px solid black;
     /* display: flex;
@@ -43,9 +36,28 @@ body{
 
     background-color: rgb(8, 8, 105);
 
+
+}
+.functions{
+background-color: lightslategray;
+}
+.functions:hover{
+
+    background-color: rgb(125, 137, 150);
+    box-shadow: 1px;
+
 }
 .row1 button{
     width: 170px;
+    background-color: lightcoral;
+}
+.row1 button:hover{
+    height: 81px;
+    width: 171px;
+    background-color: rgb(245, 150, 150);
+    border-radius: 8px;
+    box-shadow: 10px;
+
 }
 button{
     margin: 5px;
@@ -53,6 +65,15 @@ button{
     width: 80px;
     background-color: lightgrey;
     border-radius: 8px;
+    font-size: 28px;
+    
+}
+button:hover{
+    height: 81px;
+    width: 81px;
+    background-color: rgb(236, 235, 235);
+    border-radius: 8px;
+
 }
 .rows{
     /* align-items: stretch; */
@@ -63,4 +84,10 @@ button{
 .row1{
     justify-content: right;
     padding-right: 10px;
+}
+
+.displayContent{
+    font-size: 48px;
+    font-weight: bold;
+    text-align: right;
 }
