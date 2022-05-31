@@ -69,8 +69,8 @@ for (let i = 0; i < digits.length; i++) {
         calcDisplay(`${i}`, displayContent, display);
         lastValue = i;
      
-        console.log('at digit: push equal  ' + addPush);
-        console.log('at digit: push equal  ' + subPush);
+        //console.log('at digit: push equal  ' + addPush);
+        //console.log('at digit: push equal  ' + subPush);
       
         
       });
@@ -92,35 +92,11 @@ addbtn.addEventListener('click', () => {
                }
                 addPush = 'yes';
         }
-        if(subPush == 'yes'){
-            output =  operate('-', firstNum, lastValue);
-            console.log('sub push at add ' + output);
-            calcDisplay(output, displayContent, display);
-           
-            firstNum = output;
-            subPush = 'no';
-           }
-           if(mulPush == 'yes'){
-           
-            output =  operate('*', firstNum, lastValue);
-            console.log('mul push at add' + output);
-            calcDisplay(output, displayContent, display);
-           
-            firstNum = output;
-            mulPush ='no';
-           
-           }
-           if(divPush == 'yes'){
-           
-            output =  operate('/', firstNum, lastValue);
-            console.log('div  push at add' + output);
-            calcDisplay(output, displayContent, display);
-           
-            firstNum = output;
-            divPush ='no';
-           
-           }
+
         
+        whichPushed(0, subPush, mulPush, divPush);
+       
+             
         console.log('at add button: push equal ' + addPush);
       });
 
@@ -139,36 +115,7 @@ subbtn.addEventListener('click', () => {
             }
              subPush = 'yes';
            }
-        if(addPush == 'yes'){
-           
-         output =  operate('+', firstNum, lastValue);
-         console.log('add push at sub' + output);
-         calcDisplay(output, displayContent, display);
-        
-         firstNum = output;
-         addPush ='no';
-        
-        }
-        if(mulPush == 'yes'){
-           
-            output =  operate('*', firstNum, lastValue);
-            console.log('mul push at sub' + output);
-            calcDisplay(output, displayContent, display);
-           
-            firstNum = output;
-            mulPush ='no';
-           
-           }
-           if(divPush == 'yes'){
-           
-            output =  operate('/', firstNum, lastValue);
-            console.log('div  push at sub' + output);
-            calcDisplay(output, displayContent, display);
-           
-            firstNum = output;
-            divPush ='no';
-           
-           }
+           whichPushed(addPush, 0, mulPush, divPush);
        
         console.log('at sub button: push equal ' + subPush);
       });
@@ -189,36 +136,7 @@ mulbtn.addEventListener('click', () => {
             }
              mulPush = 'yes';
            }
-        if(addPush == 'yes'){
-           
-         output =  operate('+', firstNum, lastValue);
-         console.log('add push at mul' + output);
-         calcDisplay(output, displayContent, display);
-        
-         firstNum = output;
-         addPush ='no';
-        
-        }
-        if(subPush == 'yes'){
-           
-            output =  operate('-', firstNum, lastValue);
-            console.log('sub  push at mul' + output);
-            calcDisplay(output, displayContent, display);
-           
-            firstNum = output;
-            subPush ='no';
-           
-           }
-           if(divPush == 'yes'){
-           
-            output =  operate('/', firstNum, lastValue);
-            console.log('div  push at mul' + output);
-            calcDisplay(output, displayContent, display);
-           
-            firstNum = output;
-            divPush ='no';
-           
-           }
+           whichPushed(addPush, subPush, 0, divPush);
        
         console.log('at mul button: push equal ' + mulPush);
       });
@@ -238,36 +156,7 @@ divbtn.addEventListener('click', () => {
             }
              divPush = 'yes';
            }
-        if(addPush == 'yes'){
-           
-         output =  operate('+', firstNum, lastValue);
-         console.log('add push at div' + output);
-         calcDisplay(output, displayContent, display);
-        
-         firstNum = output;
-         addPush ='no';
-        
-        }
-        if(subPush == 'yes'){
-           
-            output =  operate('-', firstNum, lastValue);
-            console.log('sub  push at div' + output);
-            calcDisplay(output, displayContent, display);
-           
-            firstNum = output;
-            subPush ='no';
-           
-           }
-           if(mulPush == 'yes'){
-           
-            output =  operate('*', firstNum, lastValue);
-            console.log('mul  push at div' + output);
-            calcDisplay(output, displayContent, display);
-           
-            firstNum = output;
-            mulPush ='no';
-           
-           }
+           whichPushed(addPush, subPush, mulPush, 0);
          
        
         console.log('at div button: push equal ' + divPush);
@@ -275,42 +164,8 @@ divbtn.addEventListener('click', () => {
 
 const equalbtn = document.querySelector('#equal');
 equalbtn.addEventListener('click', () => {
-        if(addPush == 'yes'){
-            output =  operate('+', firstNum, lastValue);
-            console.log('add push at equal ' + output);
-            calcDisplay(output, displayContent, display);     
-            firstNum = output;
-            addPush = 'no';
-        
-        }
-        if(subPush == 'yes'){
-            output =  operate('-', firstNum, lastValue);
-            console.log('sub push at equal ' + output);
-            calcDisplay(output, displayContent, display);
-           
-            firstNum = output;
-            subPush = 'no';
-           }
-           if(mulPush == 'yes'){
-           
-            output =  operate('*', firstNum, lastValue);
-            console.log('mul push at equal' + output);
-            calcDisplay(output, displayContent, display);
-           
-            firstNum = output;
-            mulPush ='no';
-           
-           }
-           if(divPush == 'yes'){
-           
-            output =  operate('/', firstNum, lastValue);
-            console.log('div  push at equal' + output);
-            calcDisplay(output, displayContent, display);
-           
-            firstNum = output;
-            divPush ='no';
-           
-           }
+    
+    whichPushed(addPush, subPush, mulPush, divPush);
 
            equalPush =  'yes';
         
@@ -318,5 +173,51 @@ equalbtn.addEventListener('click', () => {
       });
 
 
-
+function whichPushed(addP, subP, mulP, divP){
+    
+    if(addP == 'yes'){
+       
+     output =  operate('+', firstNum, lastValue);
+     console.log('add push at which' + output);
+     calcDisplay(output, displayContent, display);
+    
+     firstNum = output;
+     addPush ='no';
+    
+    }
+    if(subP == 'yes'){
+       
+        output =  operate('-', firstNum, lastValue);
+        console.log('sub  push at which' + output);
+        calcDisplay(output, displayContent, display);
+       
+        firstNum = output;
+        subPush ='no';
+       
+       }
+       if(mulP == 'yes'){
+       
+        output =  operate('*', firstNum, lastValue);
+        console.log('mul  push at which' + output);
+        calcDisplay(output, displayContent, display);
+       
+        firstNum = output;
+        mulPush ='no';
+       
+       }
+       if(divP == 'yes'){
+           
+        output =  operate('/', firstNum, lastValue);
+        console.log('div  push at which' + output);
+        calcDisplay(output, displayContent, display);
+       
+        firstNum = output;
+        divPush ='no';
+       
+       }
+     
+   
+    console.log('which pressed' + firstNum);
+    
+}
 
