@@ -23,16 +23,16 @@ function operate(operator, num1, num2){
 
     
     if(operator == '+'){
-        add(num1, num2);
+        return add(num1, num2);
     }
     if(operator == '-'){
-        subtract(num1, num2);
+        return subtract(num1, num2);
     }
     if(operator == '*'){
-        multiply(num1, num2);
+        return multiply(num1, num2);
     }
     if(operator == '/'){
-        divide(num1, num2);
+        return divide(num1, num2);
     }
     
 }
@@ -50,14 +50,56 @@ function calcDisplay(value, displayContent, display){
 
 }
 
-//button to display
-const digits = document.querySelectorAll('#digits');
+//button to display add"
+const digits = document.querySelectorAll('.digits');
+let lastValue = 0;
+let addPush = 'no';
+let pushCheck = 'no';
 
 for (let i = 0; i < digits.length; i++) {
     digits[i].addEventListener('click', () => {
         calcDisplay(`${i}`, displayContent, display);
+        lastValue = i;
+        if(addPush == 'yes'){
+            output2 =  operate('+', firstNum, lastValue);
+            calcDisplay(output2, displayContent, display);
+            addPush = 'no';
+            firstNum = output2;
+            pushCheck = 'yes';
+            
+        }
+        console.log('at digit: push equal  ' + addPush);
+      
+        
       });
     }
+  
+
+const addbtn = document.querySelector('#add');
+let firstNum = 0;
+let output = 0;
+let output2 = 0;
+
+
+    addbtn.addEventListener('click', () => {
+        if(addPush == 'yes'){
+         output =  operate('+', firstNum, lastValue);
+         calcDisplay(output, displayContent, display);
+        
+         firstNum = output;
+        
+        }else{
+            if(pushCheck = 'yes'){
+                addPush = 'yes';
+            }else{
+          firstNum = lastValue;
+          addPush = 'yes';
+        }
+          
+        }
+        console.log('at button: push equal ' + addPush);
+      });
+    
 
 
 
