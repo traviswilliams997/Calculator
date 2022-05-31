@@ -5,7 +5,7 @@ function add(num1, num2){
 
 function subtract(num1, num2){
     //console.log(num1 - num2);
-    return num1 - num2;
+    return num1  - num2;
 }
 
 function multiply(num1, num2){
@@ -41,21 +41,35 @@ function operate(operator, num1, num2){
 const display = document.querySelector('#display');
 const displayContent = document.createElement('div');
 displayContent.classList.add('displayContent');
+let displayValue = "";
 
 
 function calcDisplay(value, displayContent, display){
-    let displayValue = value;
-    displayContent.textContent = displayValue;
+    displayContent.textContent = value; 
     display.appendChild(displayContent);
 
 }
 
-//button to display add"
+//To display multiple digit numbers
+function play(i){
+
+    displayValue += i;
+    calcDisplay(displayValue, displayContent, display);
+    lastValue = parseInt(displayValue);
+   
+}
+
 const digits = document.querySelectorAll('.digits');
+for (let i = 0; i < digits.length; i++) {
+    digits[i].addEventListener('click', function(){play(i)});
+    }
+
+
+
 let lastValue = 0;
 let firstNum = 0;
-let output = 0;
-let operateStore = "";
+let output = 0 ;
+
 let addPush = 'no';
 let subPush = 'no';
 let mulPush ='no';
@@ -64,21 +78,14 @@ let equalPush = 'no';
 
 
 
-for (let i = 0; i < digits.length; i++) {
-    digits[i].addEventListener('click', () => {
-        calcDisplay(`${i}`, displayContent, display);
-        lastValue = i;
-     
-        //console.log('at digit: push equal  ' + addPush);
-        //console.log('at digit: push equal  ' + subPush);
-      
-        
-      });
-    }
-  
+
+
 
 const addbtn = document.querySelector('#add');
-addbtn.addEventListener('click', () => {
+    addbtn.addEventListener('click', () => {
+        displayValue = "";
+
+      
         if(addPush == 'yes'){
             output =  operate('+', firstNum, lastValue);
             console.log('add push at add ' + output);
@@ -102,6 +109,8 @@ addbtn.addEventListener('click', () => {
 
 const subbtn = document.querySelector('#subtract');
 subbtn.addEventListener('click', () => {
+    displayValue = "";
+    
         if(subPush == 'yes' ){
             output =  operate('-', firstNum, lastValue);
             console.log('sub push at sub' + output);
@@ -123,6 +132,7 @@ subbtn.addEventListener('click', () => {
 
 const mulbtn = document.querySelector('#multiply');
 mulbtn.addEventListener('click', () => {
+    displayValue = "";
         if(mulPush == 'yes' ){
             output =  operate('*', firstNum, lastValue);
             console.log('mul push at mul' + output);
@@ -143,6 +153,7 @@ mulbtn.addEventListener('click', () => {
 
 const divbtn = document.querySelector('#divide');
 divbtn.addEventListener('click', () => {
+    displayValue = "";
         if(divPush == 'yes' ){
             output =  operate('/', firstNum, lastValue);
             console.log('div push at div ' + output);
@@ -164,7 +175,8 @@ divbtn.addEventListener('click', () => {
 
 const equalbtn = document.querySelector('#equal');
 equalbtn.addEventListener('click', () => {
-    
+    displayValue = "";
+
     whichPushed(addPush, subPush, mulPush, divPush);
 
            equalPush =  'yes';
