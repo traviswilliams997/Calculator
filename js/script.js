@@ -107,8 +107,10 @@ let subPush = 'no';
 let mulPush ='no';
 let divPush = 'no';
 let equalPush = 'no';
-var myAudio = document.createElement('audio');
-myAudio.setAttribute('src','click.mp3');
+
+//sound
+let myAudio = document.createElement('audio');
+myAudio.setAttribute('src','sounds/click.mp3');
 myAudio.playbackRate = 4;
 
 
