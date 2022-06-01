@@ -1,15 +1,23 @@
 function add(num1, num2){
-    return num1 + num2;
+    let ans =  num1 + num2;
+    ans = ans.toFixed(2);
+    return ans;
 }
 function subtract(num1, num2){
-    return num1  - num2;
+    let ans =  num1 - num2;
+    ans = ans.toFixed(2);
+    return ans;
 }
 function multiply(num1, num2){
-    return num1 * num2;
+    let ans =  num1 * num2;
+    ans =  ans.toFixed(2);
+    return ans;
 }
 function divide(num1, num2){
     if(num2 !== 0 ){
-    return num1 / num2;
+        let ans =  num1 / num2;
+        ans = ans.toFixed(2);
+        return ans;
     }else{
         return 0;
     }
