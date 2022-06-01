@@ -93,7 +93,10 @@ function pushDisplay(i){
 //logic to display on screen when digit is pressed
 const digits = document.querySelectorAll('.digits');
 for (let i = 0; i < digits.length; i++) {
-    digits[i].addEventListener('click', function(){pushDisplay(i)});
+    digits[i].addEventListener('click', function(){
+        myAudio.currentTime = 0;
+        myAudio.play();
+        pushDisplay(i)});
     }
 //variables needed to translate button press to calculation  and display 
 let lastValue = 0;
@@ -104,10 +107,17 @@ let subPush = 'no';
 let mulPush ='no';
 let divPush = 'no';
 let equalPush = 'no';
+var myAudio = document.createElement('audio');
+myAudio.setAttribute('src','click.mp3');
+myAudio.playbackRate = 4;
+
 
 //Addition button
 const addbtn = document.querySelector('#add');
 addbtn.addEventListener('click', () => {
+    myAudio.currentTime = 0;
+    myAudio.play();
+
     displayValue = "";
     if(addPush == 'yes'){
         output =  operate('+', firstNum, lastValue);
@@ -126,6 +136,9 @@ addbtn.addEventListener('click', () => {
 //Subtraction button
 const subbtn = document.querySelector('#subtract');
 subbtn.addEventListener('click', () => {
+    myAudio.currentTime = 0;
+    myAudio.play();
+    
     displayValue = "";
     if(subPush == 'yes' ){
         output =  operate('-', firstNum, lastValue);
@@ -143,6 +156,9 @@ subbtn.addEventListener('click', () => {
 //Multiply button
 const mulbtn = document.querySelector('#multiply');
 mulbtn.addEventListener('click', () => {
+    myAudio.currentTime = 0;
+    myAudio.play();
+    
     displayValue = "";
     if(mulPush == 'yes' ){
         output =  operate('*', firstNum, lastValue);
@@ -160,6 +176,9 @@ mulbtn.addEventListener('click', () => {
 //Division button
 const divbtn = document.querySelector('#divide');
 divbtn.addEventListener('click', () => {
+    myAudio.currentTime = 0;
+    myAudio.play();
+
     displayValue = "";
     if(divPush == 'yes' ){
         //displays error if denomitor is equal to zero
@@ -184,6 +203,9 @@ divbtn.addEventListener('click', () => {
 //Equals button
 const equalbtn = document.querySelector('#equal');
 equalbtn.addEventListener('click', () => {
+    myAudio.currentTime = 0;
+    myAudio.play();
+
     displayValue = "";
     otherPushed(addPush, subPush, mulPush, divPush);
     equalPush = 'yes';
@@ -192,6 +214,9 @@ equalbtn.addEventListener('click', () => {
 //Clear button
 const clearbtn = document.querySelector('#clear');
 clearbtn.addEventListener('click', () => {
+    myAudio.currentTime = 0;
+    myAudio.play();
+
     displayValue = "";
     lastValue = 0;
     firstNum = 0;
