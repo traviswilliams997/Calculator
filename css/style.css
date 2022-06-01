@@ -40,7 +40,14 @@ background-color: lightslategray;
 }
 .functions:hover{
     background-color: rgb(125, 137, 150);
-    box-shadow: 1px;
+}
+.functions:active{
+    height: 78px;
+    width: 78px;
+    background-color: rgb(100, 114, 128);
+    border-radius: 8px;
+    border: 2px solid black;
+
 }
 .row1 button{
     width: 170px;
@@ -52,6 +59,15 @@ background-color: lightslategray;
     background-color: rgb(245, 150, 150);
     border-radius: 8px;
     box-shadow: 10px;
+}
+.row1 button:active{
+    height: 78px;
+    width: 168px;
+    background-color: rgb(240, 83, 83);
+    border-radius: 8px;
+    border: 2px solid black;
+
+
 }
 button{
     margin: 5px;
@@ -67,6 +83,15 @@ button:hover{
     width: 81px;
     background-color: rgb(236, 235, 235);
     border-radius: 8px;
+}
+.digits:active{
+    height: 78px;
+    width: 78px;
+    background-color: rgb(173, 173, 173);
+    border-radius: 8px;
+    border: 2px solid black;
+
+
 }
 .rows{
     display: flex;
