@@ -46,8 +46,11 @@ displayContent.classList.add('displayContent');
 let displayValue = "";
 
 function calcDisplay(value, displayContent, display){
+    //keeps numbers on screen
+    if(value.length < 16){
     displayContent.textContent = value; 
     display.appendChild(displayContent);
+    }
 
 }
 
