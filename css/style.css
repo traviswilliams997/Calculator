@@ -54,8 +54,8 @@ background-color: lightslategray;
     background-color: lightcoral;
 }
 .row1 button:hover{
-    height: 81px;
-    width: 171px;
+    height: 80px;
+    width: 170px;
     background-color: rgb(245, 150, 150);
     border-radius: 8px;
     box-shadow: 10px;
@@ -79,8 +79,8 @@ button{
     
 }
 button:hover{
-    height: 81px;
-    width: 81px;
+    height: 80px;
+    width: 80px;
     background-color: rgb(236, 235, 235);
     border-radius: 8px;
 }
